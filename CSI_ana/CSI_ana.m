@@ -18,7 +18,7 @@ LTS_TEMPLATE = LTS_WITH_GI;
 % RX2_RX1_1     -5度    RX2_RX1_2   -6度   RX2_RX1_3    -7度
 % RXMID1        2度    RXMID2      7度   RXMID3       10度
 
-filename = 'IQsignal.txt';
+filename = 'move.txt';
 fprintf('Reading data from %s...\n', filename);
 
 %% 读取文件头信息
@@ -158,7 +158,7 @@ for frame_idx = 1:frame_count
         
 
         % 计算相位差（解缠绕后）
-        phase_diff = (unwrap_phase0 - unwrap_phase1);
+        phase_diff = (unwrap_phase0+160/180*pi - unwrap_phase1);
         phase_diff_deg = phase_diff * 180 / pi;
         
         % 计算相位差的中值
